@@ -11,11 +11,25 @@ can be used to add the required part to the LLM request. Here's at the high leve
 
 ```mermaid
 sequenceDiagram
-    Model-->>+Image Retrieval Tool: get images
-    Image Retrieval Tool->>+Model: image metadata (URI and MIME type)
-    Model->>+State Setting Tool: image metadata
-    State Setting Tool-->>-Session State: store image metadata
-    Before Model Callback-->>+Session State: get image metadata
-    Before Model Callback-->>+Model: add Part(image metadata) to request
-    Model-->+Model: analyze image
+    ADK->>Model: Request which causes image retrieval
+    Model-->>ADK: invoke Image Retrieval Tool
+    ADK->>Image Retrieval Tool: get images
+    Image Retrieval Tool-->>Model: image metadata (URI and MIME type)
+
+    Note right of ADK: potentially multiple conversational turns
+
+    ADK->>Model: Request to process image details
+    Note right of Model: Critical that the model is instructed to call this tool on this request 
+    Model->>State Setting Tool: image metadata
+    
+    create participant Session State
+    State Setting Tool->>Session State: store image metadata
+    
+    ADK->>Before Model Callback: run
+    Before Model Callback->>Session State: get image metadata
+    destroy Session State
+    Before Model Callback-xSession State: clear state attribute
+
+    Before Model Callback-->>Model: add Part(image metadata) to request
+    ADK->Model: Generate content
 ```
