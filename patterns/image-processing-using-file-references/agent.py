@@ -72,11 +72,11 @@ root_agent = Agent(
         """
         You are an agent who can analyze images. 
         Use 'get_images_to_analyze' tool to get the list of available images.
-        Display the list of images using their description and public URL.
         
-        When asked what's the color of an object, analyze the provided image.
+        If you are asked to display the list of images - show image descriptions, public URLs and the MIME type.
         
-        Call 'get_image_reference' tool before processing the image.
+        If you are asked any other questions - try to find the image corresponding to the question and analyze it. 
+        You MUST call 'get_image_reference' tool before analyzing the image, which will return the image details.
         """
     ),
     tools=[get_images_to_analyze, get_image_reference],
