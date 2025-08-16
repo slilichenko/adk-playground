@@ -20,8 +20,9 @@ sequenceDiagram
 
     ADK->>Model: Request to process image details
     Note right of Model: Critical that the model is instructed to call this tool on this request 
-    Model->>State Setting Tool: image metadata
+    Model->>ADK: Call State Setting Tool(image metadata)
     
+    ADK->>State Setting Tool: Invoke
     create participant Session State
     State Setting Tool->>Session State: store image metadata
     
@@ -31,5 +32,6 @@ sequenceDiagram
     Before Model Callback-xSession State: clear state attribute
 
     Before Model Callback-->>Model: add Part(image metadata) to request
+    Note right of ADK: This includes an empty functon response and Part with image metadata
     ADK->Model: Generate content
 ```

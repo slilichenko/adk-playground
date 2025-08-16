@@ -2,6 +2,5 @@
 
 ## Binary file handling
 
-### Processing images using Cloud Storage references
+* [Processing images using Cloud Storage references](image-processing-using-file-references)
  
-How an agent can process images located on a Cloud Storage bucket 
