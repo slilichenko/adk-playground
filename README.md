@@ -1,8 +1,6 @@
-# Project Title
+# ADK Playground
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=GITHUB_URL)
-
-*Description*
+This project is to show ADK best practices and design patterns.
 
 > **🧪 Preview:** Any notes about stability or launch stage.
 
@@ -25,3 +23,8 @@ information.
 ## License
 
 Apache 2.0 - See [LICENSE](LICENSE) for more information.
+
+## Disclaimer
+This project is not an official Google project. It is not supported by Google and Google specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose.
+
+This project is intended for demonstration purposes only. It is not intended for use in a production environment.
