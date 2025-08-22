@@ -25,11 +25,11 @@ information.
 
 Apache 2.0 - See [LICENSE](LICENSE) for more information.
 
-## Disclaimer
+## Disclaimers
 
-This project is not an official Google project. It is not supported by Google and Google
-specifically disclaims all warranties as to its quality, merchantability, or fitness for a
-particular purpose.
+This is not an officially supported Google product. This project is not
+eligible for the [Google Open Source Software Vulnerability Rewards
+Program](https://bughunters.google.com/open-source-security).
 
-This project is intended for demonstration purposes only. It is not intended for use in a production
-environment.
+This project is intended for demonstration purposes only. It is not
+intended for use in a production environment.
