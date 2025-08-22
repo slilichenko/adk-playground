@@ -1,14 +1,15 @@
 # ADK Playground
 
-This project is to show ADK best practices and design patterns.
+This project is to show ADK best practices, design patterns and various tips and tricks.
 
-> **🧪 Preview:** Any notes about stability or launch stage.
+[ADK documentation](https://google.github.io/adk-docs/) is pretty extensive and constantly
+improving. If you find any discrepancies between this repo and the official documentation - assume
+that the documentation is correct (or read the source code or run your own tests).
 
-## Features
+> **🧪 Note:** ADK changes rapidly. We attempt to keep the code snippets up-to-date, but we work on
+> this project the best effort basis. If you find issues - we would appreciate if you report them!
 
-## Getting Started
-
-### Prerequisites
+This project has two sections: [Design Patterns](patterns/README.md) and [Best Practices](best-practices/README.md).
 
 ## Contributing
 
@@ -25,6 +26,10 @@ information.
 Apache 2.0 - See [LICENSE](LICENSE) for more information.
 
 ## Disclaimer
-This project is not an official Google project. It is not supported by Google and Google specifically disclaims all warranties as to its quality, merchantability, or fitness for a particular purpose.
 
-This project is intended for demonstration purposes only. It is not intended for use in a production environment.
+This project is not an official Google project. It is not supported by Google and Google
+specifically disclaims all warranties as to its quality, merchantability, or fitness for a
+particular purpose.
+
+This project is intended for demonstration purposes only. It is not intended for use in a production
+environment.

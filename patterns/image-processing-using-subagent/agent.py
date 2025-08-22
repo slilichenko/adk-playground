@@ -75,9 +75,24 @@ def before_model_callback(callback_context: CallbackContext,
         callback_context.state[IMAGE_MIME_ATTR] = None
     return None
 
+sub_agent = Agent(
+    name="image_analyzing_agent",
+    model="gemini-2.5-flash",
+    description=(
+        "Agent to analyze images"
+    ),
+    instruction=(
+        """
+        You are an agent who can analyze images. 
+        """
+    ),
+    input_schema=ImageInfo,
+    before_model_callback=before_model_callback
+)
+
 
 root_agent = Agent(
-    name="image_processing_agent",
+    name="image_processing_coordinator",
     model="gemini-2.5-flash",
     description=(
         "Agent to demo how images can be processed."
@@ -85,15 +100,13 @@ root_agent = Agent(
     instruction=(
         """
         You are an agent who can analyze images. 
+        Use 'get_images_to_analyze' tool to get the list of available images.
         
         If you are asked to display the list of images - show image descriptions, public URLs and the MIME type.
         
-        If you are asked any other questions - try to find the image corresponding to the question and analyze it. 
-        You MUST call 'get_image_reference' tool before analyzing the image, which will return the image details.
-        
-        Don't use general knowledge to answer questions - the answer MUST be based on the image analysis.
+        Before making a call to 'transfer_to_agent' function, make sure to call 'set_image_reference' function with the details of the image to be processed.
         """
     ),
     tools=[get_images_to_analyze, set_image_reference],
-    before_model_callback=before_model_callback
+    sub_agents=[sub_agent]
 )
