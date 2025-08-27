@@ -1,15 +1,18 @@
 # ADK Playground
 
-This project is to show ADK best practices, design patterns and various tips and tricks.
+This project is to show ADK best practices, design patterns and various tips and tricks. The primary
+focus is on ADK's Python SDK and Google's Gemini models, but many of the best practices and design
+patterns can be applicable to other SDKs and models supported by ADK.
 
 [ADK documentation](https://google.github.io/adk-docs/) is pretty extensive and constantly
 improving. If you find any discrepancies between this repo and the official documentation - assume
 that the documentation is correct (or read the source code or run your own tests).
 
-> **🧪 Note:** ADK changes rapidly. We attempt to keep the code snippets up-to-date, but we work on
+> **🧪 Note:** We attempt to keep the code snippets up-to-date, but we work on
 > this project the best effort basis. If you find issues - we would appreciate if you report them!
 
-This project has two sections: [Design Patterns](patterns/README.md) and [Best Practices](best-practices/README.md).
+This project has two sections: [Design Patterns](patterns/README.md)
+and [Best Practices](best-practices/README.md).
 
 ## Contributing
 
