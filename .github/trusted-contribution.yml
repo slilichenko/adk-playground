@@ -27,6 +27,4 @@ annotations:
   # Trigger Cloud Build tests
   - type: comment
     text: "/gcbrun"
-  # Trigger Kokoro example
-  # - type: label
-  #   text: "kokoro:force-run"
+
