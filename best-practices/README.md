@@ -9,7 +9,22 @@ to the official docs.
 
 See [Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies).
 
-### Keep the number of functions per conversation turn limited
+### Chose the right model for your agent
+
+Different models have different characteristics. Depending on the agent’s goals you might need to
+choose a specific model or a family of models that are most suitable. If you are working with
+Gemini, use [this page](https://ai.google.dev/gemini-api/docs/models) as an initial guidance.
+Ultimately, the goal is to find the cheapest and fastest model that can do the job. But there is a
+high chance you might end up using the latest Pro model (which is costlier and requires more time to
+come up with responses) if your agent needs advanced reasoning. Test your instructions against the
+target model - they can differ quite a bit. Always explicitly specify the model and never rely on a
+default agent's model - when you update the ADK and the default model changed in the new release you
+might not know that you need to retest, and potentially fix, your agent.
+
+Many sophisticated agents will end up using different sub agents or will use agents as tools. In
+ADK, you can use different LLM models to power different agents.
+
+### Keep the number of tools per conversation turn limited
 
 Why is it important? There are multiple reasons:
 
@@ -35,17 +50,16 @@ descriptions. Using good tool and parameter names can reduce the need to produce
 descriptions and, consequently, reduce the size of the LLM request/token count. But test how the
 model selects the tool when needed.
 
-### Chose the right model for your agent
+## Tool design
 
-Different models have different characteristics. Depending on the agent’s goals you might need to
-choose a specific model or a family of models that are most suitable. If you are working with
-Gemini, use [this page](https://ai.google.dev/gemini-api/docs/models) as an initial guidance.
-Ultimately, the goal is to find the cheapest and fastest model that can do the job. But there is a
-high chance you might end up using the latest Pro model (which is costlier and requires more time to
-come up with responses) if your agent needs advanced reasoning. Test your instructions against the
-target model - they can differ quite a bit. Always explicitly specify the model and never rely on a
-default agent's model - when you update the ADK and the default model changed in the new release you
-might not know that you need to retest, and potentially fix, your agent.
+### Follow the official best practices
 
-Many sophisticated agents will end up using different sub agents or will use agents as tools. In
-ADK, you can use different LLM models to power different agents.
+The [ADK docs](https://google.github.io/adk-docs/tools/function-tools/#best-practices) are a
+must-read. If your tools are resource intensive or long-running - read
+the [tool performance](https://google.github.io/adk-docs/tools/performance/) section.
+
+### Start with tool mocks to determine the most model friendly shape of the tool
+
+Three things are important for tool interaction with the model - description, input parameters and
+output. The description is critical for the model to select the tool at the right time. Once selected
+

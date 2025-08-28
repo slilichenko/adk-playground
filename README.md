@@ -1,8 +1,9 @@
 # ADK Playground
 
-This project is to show ADK best practices, design patterns and various tips and tricks. The primary
-focus is on ADK's Python SDK and Google's Gemini models, but many of the best practices and design
-patterns can be applicable to other SDKs and models supported by ADK.
+This project is to show ADK best practices, design patterns and various tips and tricks. 
+
+The code samples in this repo were built and tested using ADK's Python SDK and Google's Gemini models.  But all the best practices and design
+patterns should be applicable to other SDKs and [models supported by ADK](https://google.github.io/adk-docs/agents/models/#model-choice). 
 
 [ADK documentation](https://google.github.io/adk-docs/) is pretty extensive and constantly
 improving. If you find any discrepancies between this repo and the official documentation - assume

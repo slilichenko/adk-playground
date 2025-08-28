@@ -34,7 +34,7 @@ class ImageInfo(BaseModel):
 
 
 def get_images_to_analyze() -> list[ImageInfo]:
-    """Retrieves the list of the images to further analyze
+    """Retrieves the list of the images to analyze
 
     Returns:
          list: list of images
