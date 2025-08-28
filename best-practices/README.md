@@ -61,5 +61,32 @@ the [tool performance](https://google.github.io/adk-docs/tools/performance/) sec
 ### Start with tool mocks to determine the most model friendly shape of the tool
 
 Three things are important for tool interaction with the model - description, input parameters and
-output. The description is critical for the model to select the tool at the right time. Once selected
+output. The description is critical for the model to select the tool at the right point.
+
+Once a tool is selected, the model will provide the tool with parameters. Make sure that the model
+does this consistently. The typical problem is the tool which expects some fixed values, let's say
+upper-cased status values, but the model provides lower-cased values. You can make explicit
+instructions in parameter descriptions or model prompt, or you can skip them and make the tool
+resilient and include a small "parameter normalization" step.
+
+The output shape is important - it needs to be "understandable" by the model. Don't include anything
+that your model wouldn't need to use. Think of anything that's duplicated in the output and see if
+you can a) group the data under the same key and b) reduce the size of the output.
+See [this example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131).
+
+### Handle errors
+
+If the tool throws an exception, ADK wouldn't know what to return to the model and the flow has to
+stop. Depending on how the agent is deployed, the end user will see either a generic message along
+the lines of "System is unavailable", or a cryptic message with the details of the failure. From the
+end user point of view, the agent is broken. In most cases, it's better to handle all exceptions in
+the tool and let the model know that the tool has failed to produce the result.
+
+* Always produce the "status" node in your response with two possible values, "success" and "
+  failure".
+* If possible, add "failure_reason" node with the end user-friendly description. The model may
+  decide to show that description to the user, which can improve user experience.
+* Log the error and do the typical application monitoring to track failures and react to them quickly
+
+Here's an [example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131) of a function that follows these guidelines.
 
