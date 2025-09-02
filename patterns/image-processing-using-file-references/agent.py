@@ -24,7 +24,6 @@ from pydantic import Field, BaseModel, ConfigDict
 IMAGE_URI_ATTR = 'image_uri'
 IMAGE_MIME_ATTR = 'image_mime'
 
-
 class ImageInfo(BaseModel):
     description: str = Field(description="Image description")
     cloud_storage_uri: str = Field(description="Cloud storage URI of the image")
