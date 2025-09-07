@@ -7,7 +7,9 @@ to the official docs.
 
 ### Use good prompts
 
-See [Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies).
+See [Gemini Prompting Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies), [Anthropic Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview),
+or [OpenAI Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+documentation for details.
 
 ### Chose the right model for your agent
 
@@ -86,7 +88,10 @@ the tool and let the model know that the tool has failed to produce the result.
   failure".
 * If possible, add "failure_reason" node with the end user-friendly description. The model may
   decide to show that description to the user, which can improve user experience.
-* Log the error and do the typical application monitoring to track failures and react to them quickly
+* Log the error and do the typical application monitoring to track failures and react to them
+  quickly
 
-Here's an [example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131) of a function that follows these guidelines.
+Here's
+an [example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131)
+of a function that follows these guidelines.
 

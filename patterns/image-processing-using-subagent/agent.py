@@ -11,7 +11,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-
+import os
 from typing import Optional
 
 from google.adk.agents import Agent
@@ -77,7 +77,7 @@ def before_model_callback(callback_context: CallbackContext,
 
 sub_agent = Agent(
     name="image_analyzing_agent",
-    model="gemini-2.5-flash",
+    model=os.getenv("DEFAULT_MODEL"),
     description=(
         "Agent to analyze images"
     ),
@@ -93,7 +93,7 @@ sub_agent = Agent(
 
 root_agent = Agent(
     name="image_processing_coordinator",
-    model="gemini-2.5-flash",
+    model=os.getenv("DEFAULT_MODEL"),
     description=(
         "Agent to demo how images can be processed."
     ),

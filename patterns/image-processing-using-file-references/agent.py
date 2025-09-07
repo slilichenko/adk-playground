@@ -14,6 +14,8 @@
 
 from typing import Optional
 
+import os
+
 from google.adk.agents import Agent
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models import LlmRequest, LlmResponse
@@ -77,7 +79,7 @@ def before_model_callback(callback_context: CallbackContext,
 
 root_agent = Agent(
     name="image_processing_agent",
-    model="gemini-2.5-flash",
+    model=os.getenv("DEFAULT_MODEL"),
     description=(
         "Agent to demo how images can be processed."
     ),

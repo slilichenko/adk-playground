@@ -20,12 +20,13 @@ connecting to Vertex AI.
 
 > [!NOTE]
 > Running against Google's models is not a requirement. You can these agents against any other model
-> supported by ADK with only minor configuration changes.
+> supported by ADK, assuming that the model has the functionality needed by the agent.
 
 Once the Python environment is set up, run
 
 ```shell
 export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+export DEFAULT_MODEL=<model-to-try>
 adk web
 ```
 
