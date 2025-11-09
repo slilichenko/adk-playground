@@ -19,7 +19,8 @@ in order for the agent to be able to use the so-called Application Default Crede
 connecting to Vertex AI.
 
 > [!NOTE]
-> Running against Google's models is not a requirement. You can these agents against any other model
+> Running against Google's models is not a requirement. You can use these agents with any other
+> model
 > supported by ADK, assuming that the model has the functionality needed by the agent.
 
 Once the Python environment is set up, run
@@ -37,13 +38,20 @@ file.
 
 ### Binary file analysis
 
-It's easy to process images or other binary files when they can be provided as part of the
+It's easy to process images, or other binary files, when they can be provided as part of the
 prompt. [Here](https://github.com/gitrey/adk-samples/blob/main/agents/image-description/agent.py) is
 one example of how to submit an image for analysis to a model.
 
 But if the images are provided as references or need to be dynamically selected by the model based
-on certain criteria - there is no simple solution.
+on certain criteria - there is no simple solution. If the images are already in the artifact store,
+you can try to use
+ADK's [load_artifacts](https://github.com/google/adk-python/blob/main/src/google/adk/tools/load_artifacts_tool.py)
+tool.
+
+Below are several patterns of how to process
+binary files. In most cases, the AgentTool approach is the most robust one.
 
 * [Processing images using Cloud Storage references](image-processing-using-file-references)
-* [Processing images using subabents](image-processing-using-subagent)
+* [Processing images using sub-agents](image-processing-using-subagent)
+* [Processing images using an AgentTool](image-processing-using-agent-tool)
  
