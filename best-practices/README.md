@@ -104,9 +104,9 @@ provides a lot of metrics out of the box.
 ## Low level details
 
 Remember, ADK is just a sophisticated wrapper around LLM models. It does a lot of tricks to make
-certain constructs to appear simple, but at the end of the day it all results in an LLM call. It is
-often extremely useful to see request/response payloads of the LLM API calls. Depending on the model
-this can be done differently.
+certain constructs appear simple (e.g., allowing an agent to have sub-agents), but at the end of the
+day it all results in an LLM call. It is often extremely useful to see request/response payloads of
+the LLM API calls.
 
 For Gemini models accessed via Vertex AI you
 can [configure request/response logging](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/request-response-logging).
