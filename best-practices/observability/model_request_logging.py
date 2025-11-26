@@ -13,10 +13,12 @@
 #  limitations under the License.
 import argparse
 import os
+import warnings
 
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel
 
+warnings.filterwarnings("ignore")
 
 # Script expects three parameters - project ID, location (region or "global"),
 # the model name or model endpoint, the dataset name .
@@ -64,7 +66,9 @@ def show_logging_configuration(
     model_name: str):
     vertexai.init(project=vertex_ai_project_id, location=location)
 
-    url = f"https://aiplatform.googleapis.com/v1beta1/projects/{vertex_ai_project_id}/locations/{location}/publishers/google/models/{model_name}:fetchPublisherModelConfig"
+    endpoint_prefix = '' if location == 'global' else location + '-'
+
+    url = f"https://{endpoint_prefix}aiplatform.googleapis.com/v1beta1/projects/{vertex_ai_project_id}/locations/{location}/publishers/google/models/{model_name}:fetchPublisherModelConfig"
     os.system(
         f"curl -X GET -H \"Authorization: Bearer $(gcloud auth print-access-token)\" {url}")
 
