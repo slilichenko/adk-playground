@@ -20,12 +20,9 @@ from vertexai.preview.generative_models import GenerativeModel
 
 warnings.filterwarnings("ignore")
 
-# Script expects three parameters - project ID, location (region or "global"),
-# the model name or model endpoint, the dataset name .
 
-
-# See https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/request-response-logging
-
+# See https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/request-response-logging for details of the APIs
+# Run the script -h argument to get the descriptions of all arguments.
 
 def enable_logging(
     vertex_ai_project_id: str,
@@ -76,7 +73,7 @@ def show_logging_configuration(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("action", choices=['enable', 'disable', 'show'])
-    parser.add_argument("--vertex_ai_project_id", "-v",
+    parser.add_argument("--vertex_ai_project_id", "-p",
                         type=str,
                         help="Vertex AI project id where the Gemini calls will be made")
     parser.add_argument("--location", "-l", type=str,
