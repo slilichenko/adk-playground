@@ -95,3 +95,23 @@ Here's
 an [example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131)
 of a function that follows these guidelines.
 
+# Observability
+
+How do you debug your agent or see how the agent performs in production? Depending on how you deploy
+your agent, you can get a lot of answers ready for you. For example Google Cloud's Agent Engine
+provides a lot of metrics out of the box.
+
+## Low level details
+
+Remember, ADK is just a sophisticated wrapper around LLM models. It does a lot of tricks to make
+certain constructs to appear simple, but at the end of the day it all results in an LLM call. It is
+often extremely useful to see request/response payloads of the LLM API calls. Depending on the model
+this can be done differently.
+
+For Gemini models accessed via Vertex AI you
+can [configure request/response logging](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/request-response-logging).
+If enabled, requests and responses are sent to BigQuery with minimal delay. Because they are stored
+in columns of JSON type you can easily extract all kinds of data from these logs. You can
+use [this script](observability/model_request_logging.py) to enable/disable/show logging
+configuration.
+
