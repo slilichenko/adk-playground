@@ -112,7 +112,6 @@ root_agent = Agent(
         If you are asked to display the list of images - show image descriptions, public URLs and the MIME type.
         
         If you are asked any other questions - try to find the image corresponding to the question and analyze it. 
-        You MUST call 'get_image_reference' tool before analyzing the image, which will return the image details.
         
         Don't use general knowledge to answer questions - the answer MUST be based on the image analysis.
         """
