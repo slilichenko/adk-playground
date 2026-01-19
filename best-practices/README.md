@@ -52,6 +52,29 @@ descriptions. Using good tool and parameter names can reduce the need to produce
 descriptions and, consequently, reduce the size of the LLM request/token count. But test how the
 model selects the tool when needed.
 
+## Different types of instructions
+
+If you look at the base LllAgent, it allows providing 3 types of
+instructions - [global](https://google.github.io/adk-docs/api-reference/python/google-adk.html#google.adk.agents.LlmAgent.global_instruction),
+[static](https://google.github.io/adk-docs/api-reference/python/google-adk.html#google.adk.agents.LlmAgent.static_instruction)
+and just
+[instruction](https://google.github.io/adk-docs/api-reference/python/google-adk.html#google.adk.agents.LlmAgent.instruction).
+Why those three and when you should and shouldn't use them?
+
+### Global instructions
+
+Don't use them because they are deprecated. But if you do - they should only be specified on the
+root agent, and they will propagate to all subagents (it can be a good or a bad thing depending on
+the specific case).
+
+### System instructions
+
+They are supposed to be static, and there is no simple way to change them (well, you can always
+change everything using a before model callback). They are added to the top of the request, and it's
+usually a good thing (see the details in the documentation).
+
+### Instructions
+
 ## Tool design
 
 ### Follow the official best practices
@@ -73,7 +96,7 @@ resilient and include a small "parameter normalization" step.
 
 The output shape is important - it needs to be "understandable" by the model. Don't include anything
 that your model wouldn't need to use. Think of anything that's duplicated in the output and see if
-you can a) group the data under the same key and b) reduce the size of the output.
+you can group the data under the same key and reduce the size of the output.
 See [this example](https://github.com/GoogleCloudPlatform/data-to-ai/blob/ce2bc64f84fd7bbfed2d3d738fa24779f811ae3f/agents/maintenance-scheduler/maintenance_scheduler/tools/tools.py#L131).
 
 ### Handle errors

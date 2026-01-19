@@ -1,7 +1,7 @@
 # Processing images located on a Cloud Storage bucket using AgentTool
 
 This is a variation on how images can be processed by a subagent wrapped in an AgentTool rather than
-by the root agent ([details](../image-processing-using-file-references)).
+by the root agent ([details](../image_processing_using_file_references)).
 
 There are several important points here:
 

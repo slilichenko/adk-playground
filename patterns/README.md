@@ -51,7 +51,7 @@ tool.
 Below are several patterns of how to process
 binary files. In most cases, the AgentTool approach is the most robust one.
 
-* [Processing images using Cloud Storage references](image-processing-using-file-references)
-* [Processing images using sub-agents](image-processing-using-subagent)
-* [Processing images using an AgentTool](image-processing-using-agent-tool)
+* [Processing images using Cloud Storage references](image_processing_using_file_references)
+* [Processing images using sub-agents](image_processing_using_subagent)
+* [Processing images using an AgentTool](image_processing_using_agent_tool)
  

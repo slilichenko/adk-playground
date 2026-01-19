@@ -99,7 +99,7 @@ root_agent = Agent(
     ),
     instruction=(
         """
-        You are an agent who can analyze images. 
+        You are an agent who can analyze and generate images. 
         Use 'get_images_to_analyze' tool to get the list of available images.
         
         If you are asked to display the list of images - show image descriptions, public URLs and the MIME type.
