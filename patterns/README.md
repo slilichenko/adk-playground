@@ -12,7 +12,7 @@ pattern/technique.
 In order to run these agents locally, follow
 the [ADK Python installation instructions](https://google.github.io/adk-docs/get-started/installation/).
 
-The code assumes that you will be using Google Cloud's Vertex AI models in `us-central1` region. You
+The code assumes that you will be using Google Cloud's Vertex AI models in `global` location. You
 would need
 to [set up authentication](https://google.github.io/adk-docs/get-started/quickstart/#dev-ui-adk-web)
 in order for the agent to be able to use the so-called Application Default Credentials when

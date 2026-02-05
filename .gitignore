@@ -23,7 +23,6 @@ local.properties
 **/.DS_Store
 
 # Environments
-.env
 .venv
 env/
 **/venv/
@@ -49,5 +48,6 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
-# Language Specific
-# ...
+# ADK services data
+
+**/.adk/
